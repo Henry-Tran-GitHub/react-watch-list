@@ -10,9 +10,11 @@ import { category, movieType, tvType } from '../api/tmdbApi';
 const Home = () => {
     return (
         <>
+             {/* Banner */}
             <HeroSlide/>
             <div className="container">
-                <div className="section mb-3">
+                {/* Trending Movies */}
+                {/* <div className="section mb-3">
                     <div className="section__header mb-2">
                         <h2>Trending Movies</h2>
                         <Link to="/movie">
@@ -22,6 +24,7 @@ const Home = () => {
                     <MovieList category={category.movie} type={movieType.popular}/>
                 </div>
 
+                {/* Top Rated Movies *
                 <div className="section mb-3">
                     <div className="section__header mb-2">
                         <h2>Top Rated Movies</h2>
@@ -50,7 +53,7 @@ const Home = () => {
                         </Link>
                     </div>
                     <MovieList category={category.tv} type={tvType.top_rated}/>
-                </div>
+                </div> */}
             </div>
         </>
     );

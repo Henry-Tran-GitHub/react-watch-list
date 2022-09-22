@@ -1,6 +1,6 @@
-import { axiosClient } from "./axiosClient";
+import {axiosClient, axios_WatchList_API_Client} from "./axiosClient";
 
-export const category = {
+/* export const category = {
     movie: 'movie',
     tv: 'tv'
 }
@@ -15,14 +15,14 @@ export const tvType = {
     popular: 'popular',
     top_rated: 'top_rated',
     on_the_air: 'on_the_air'
-}
+} */
 
-const tmdbApi = {
-    getMoviesList: (type, params) => {
-        const url = 'movie/' + movieType[type];
-        return axiosClient.get(url, params);
+const watchlistApi = {
+    getWatchingList: (type, params) => {
+        const url = 'api/anime/';
+        return axios_WatchList_API_Client.get(url, params);
     },
-    getTvList: (type, params) => {
+   /*  getTvList: (type, params) => {
         const url = 'tv/' + tvType[type];
         return axiosClient.get(url, params);
     },
@@ -45,7 +45,7 @@ const tmdbApi = {
     similar: (cate, id) => {
         const url = category[cate] + '/' + id + '/similar';
         return axiosClient.get(url, {params: {}});
-    },
+    }, */
 }
 
-export default tmdbApi;
+export default watchlistApi;

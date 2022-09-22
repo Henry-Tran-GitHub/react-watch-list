@@ -7,7 +7,8 @@ import Button, { OutlineButton } from '../button/Button';
 import Modal, { ModalContent } from '../modal/Modal';
 
 import tmdbApi, { category, movieType } from '../../api/tmdbApi';
-import apiConfig from '../../api/apiConfig';
+import watchlistApi from "../../api/watchlistApi";
+import { apiConfig } from '../../api/apiConfig';
 
 import './hero-slide.scss';
 import { useHistory } from 'react-router';
@@ -22,7 +23,8 @@ const HeroSlide = () => {
         const getMovies = async () => {
             const params = {page: 1}
             try {
-                const response = await tmdbApi.getMoviesList(movieType.popular, {params});
+                //const response = await tmdbApi.getMoviesList(movieType.popular, {params});
+                const response = await watchlistApi.getWatchingList();
                 setMovieItems(response.results.slice(1, 4));
                 console.log(response);
             } catch {

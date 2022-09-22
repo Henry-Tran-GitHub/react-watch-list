@@ -16,12 +16,31 @@
 
     API: https://www.themoviedb.org/
 
-# Preview
+# Structure
 
-!["Responsive React Movies App With API"](https://user-images.githubusercontent.com/67447840/136721197-be990f3a-cae2-4757-9eb7-c0796f4a3834.png "Responsive React Movies App With API")
+Home:
 
-!["Responsive React Movies App With API"](https://user-images.githubusercontent.com/67447840/136721135-f64988cf-af31-495f-988c-c24ab10cbade.png "Responsive React Movies App With API")
+- My currently watching animes
+- Ready to Watch animes
 
-!["Responsive React Movies App With API"](https://user-images.githubusercontent.com/67447840/136721056-733be8a6-7af6-424b-a74e-eb65980a5464.png "Responsive React Movies App With API")
+Movie:
 
-!["Responsive React Movies App With API"](https://user-images.githubusercontent.com/67447840/136721118-cf5c59d2-31ff-4b06-86cb-262dd1b655fc.png "Responsive React Movies App With API")
+- show all anime movies from db Api
+- dropdown button include anime status
+  - click on dropdown --> display as HeroSlider
+  - view more --> display as List Grid
+- Search: in card: either "not in mylist" or e.g. "in watching-list"
+
+Series:
+
+- all anime series from db Api
+- dropdown button include anime status
+  - click on dropdown --> display as HeroSlider
+  - view more --> display as List Grid
+- Search: in card: either "not in mylist" or e.g. "in watching-list"
+
+# Todo list
+
+- [ ] sorting
+- [ ] filtering
+- [ ] see Details in Movie Card

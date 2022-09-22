@@ -45,7 +45,7 @@
                 width: 100%;
             }
 
-            & > * ~ * {
+            &>*~* {
                 margin-top: 3rem;
             }
 
@@ -63,7 +63,7 @@
                 font-weight: 700;
             }
 
-            .btns > * ~ * {
+            .btns>*~* {
                 margin-left: 1rem;
             }
 
@@ -96,13 +96,14 @@
         }
     }
 
-    &.active > &__content > &__content__poster {
+    &.active>&__content>&__content__poster {
         img {
             transform: scale(1);
         }
     }
 
-    &.active > &__content > &__content__info {
+    &.active>&__content>&__content__info {
+
         .btns,
         .title,
         .overview {
