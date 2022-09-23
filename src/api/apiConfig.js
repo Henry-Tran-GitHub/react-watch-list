@@ -6,7 +6,7 @@ const apiConfig = {
 }
 
 const api_WatchList_Config = {
-    baseUrl: 'http://localhost:8079/api/',
+    baseUrl: 'http://localhost:8080/api/',
 }
 
 export {apiConfig , api_WatchList_Config};
