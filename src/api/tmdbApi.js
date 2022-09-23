@@ -26,12 +26,20 @@ const tmdbApi = {
         const url = 'tv/' + tvType[type];
         return axiosClient.get(url, params);
     },
+    getTvListByID: (id, params) => {
+        const url = 'tv/' + id;
+        return axiosClient.get(url, params);
+    },
     getVideos: (cate, id) => {
         const url = category[cate] + '/' + id + '/videos';
         return axiosClient.get(url, {params: {}});
     },
     search: (cate, params) => {
         const url = 'search/' + category[cate];
+        return axiosClient.get(url, params);
+    },
+    searchMulti: (params) => {
+        const url = 'search/multi/';
         return axiosClient.get(url, params);
     },
     detail: (cate, id, params) => {

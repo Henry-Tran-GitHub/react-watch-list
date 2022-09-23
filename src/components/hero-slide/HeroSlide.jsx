@@ -21,15 +21,21 @@ const HeroSlide = () => {
 
     useEffect(() => {
         const getMovies = async () => {
-            const params = {page: 1}
+            const params = { page: 1 }
             try {
-                //const response = await tmdbApi.getMoviesList(movieType.popular, {params});
                 const response = await watchlistApi.getWatchingList();
-                setMovieItems(response.results.slice(1, 4));
-                console.log(response);
+                var otherResp = [];
+
+                response.forEach(async element => {
+                    const tmp = await tmdbApi.getTvListByID(element.tmdbApiFK, { params });
+                    otherResp.push(tmp);
+                });
+                /* console.log(response[0]) */
+                setMovieItems(otherResp);
             } catch {
                 console.log('error');
             }
+            console.log(movieItems)
         }
         getMovies();
     }, []);
@@ -41,7 +47,7 @@ const HeroSlide = () => {
                 grabCursor={true}
                 spaceBetween={0}
                 slidesPerView={1}
-                // autoplay={{delay: 3000}}
+            // autoplay={{delay: 3000}}
             >
                 {
                     movieItems.map((item, i) => (
@@ -54,7 +60,7 @@ const HeroSlide = () => {
                 }
             </Swiper>
             {
-                movieItems.map((item, i) => <TrailerModal key={i} item={item}/>)
+                movieItems.map((item, i) => <TrailerModal key={i} item={item} />)
             }
         </div>
     );
@@ -86,11 +92,11 @@ const HeroSlideItem = props => {
     return (
         <div
             className={`hero-slide__item ${props.className}`}
-            style={{backgroundImage: `url(${background})`}}
+            style={{ backgroundImage: `url(${background})` }}
         >
             <div className="hero-slide__item__content container">
                 <div className="hero-slide__item__content__info">
-                    <h2 className="title">{item.title}</h2>
+                    <h2 className="title">{item.name}</h2>
                     <div className="overview">{item.overview}</div>
                     <div className="btns">
                         <Button onClick={() => hisrory.push('/movie/' + item.id)}>

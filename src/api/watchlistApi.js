@@ -19,7 +19,7 @@ export const tvType = {
 
 const watchlistApi = {
     getWatchingList: (type, params) => {
-        const url = 'api/anime/';
+        const url = 'anime?status=WATCHING';
         return axios_WatchList_API_Client.get(url, params);
     },
    /*  getTvList: (type, params) => {
