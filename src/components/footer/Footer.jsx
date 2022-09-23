@@ -9,7 +9,7 @@ import logo from '../../assets/tmovie.png';
 
 const Footer = () => {
     return (
-        <div className="footer" style={{backgroundImage: `url(${bg})`}}>
+        <div className="footer" /* style={{backgroundImage: `url(${bg})`}} */>
             <div className="footer__content container">
                 <div className="footer__content__logo">
                     <div className="logo">
@@ -24,7 +24,7 @@ const Footer = () => {
                         <Link to="/">Term of services</Link>
                         <Link to="/">About us</Link>
                     </div>
-                    <div className="footer__content__menu">
+                    {/* <div className="footer__content__menu">
                         <Link to="/">Live</Link>
                         <Link to="/">FAQ</Link>
                         <Link to="/">Premium</Link>
@@ -34,7 +34,7 @@ const Footer = () => {
                         <Link to="/">You must watch</Link>
                         <Link to="/">Recent release</Link>
                         <Link to="/">Top IMDB</Link>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

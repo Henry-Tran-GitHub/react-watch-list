@@ -9,7 +9,9 @@ import { Link } from 'react-router-dom';
 import Button from '../button/Button';
 
 import tmdbApi, { category } from '../../api/tmdbApi';
-import apiConfig from '../../api/apiConfig';
+import { apiConfig } from '../../api/apiConfig';
+import watchlistApi from "../../api/watchlistApi";
+import { get_tmdb_data_from_list } from "../../api/util";
 
 import MovieCard from '../movie-card/MovieCard';
 
@@ -19,10 +21,17 @@ const MovieList = props => {
 
     useEffect(() => {
         const getList = async () => {
-            let response = null;
             const params = {};
 
-            if (props.type !== 'similar') {
+            // readytwowacht von unserer db
+            const response = await watchlistApi.getReadyToWatchList();
+            const list = await get_tmdb_data_from_list(tmdbApi, response, params);
+            setItems(list);
+            console.log(response);
+
+            // api request an tmdb schicken mit den ids
+
+            /* if (props.type !== 'similar') {
                 switch(props.category) {
                     case category.movie:
                         response = await tmdbApi.getMoviesList(props.type, {params});
@@ -33,7 +42,7 @@ const MovieList = props => {
             } else {
                 response = await tmdbApi.similar(props.category, props.id);
             }
-            setItems(response.results);
+            setItems(response.results); */
         }
         getList();
     }, []);
@@ -48,7 +57,7 @@ const MovieList = props => {
                 {
                     items.map((item, i) => (
                         <SwiperSlide key={i}>
-                            <MovieCard item={item} category={props.category}/>
+                            <MovieCard item={item} category={props.category} />
                         </SwiperSlide>
                     ))
                 }
