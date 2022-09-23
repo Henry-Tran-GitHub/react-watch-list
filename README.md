@@ -20,8 +20,8 @@
 
 Home:
 
-- My currently watching animes
-- Ready to Watch animes
+- [x] My currently watching animes
+- [x] Ready to Watch animes
 
 Movie:
 

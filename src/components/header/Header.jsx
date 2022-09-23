@@ -21,37 +21,6 @@ const headerNav = [
     },
 ];
 
-const statusNav = [
-    {
-        display: 'Ready To Watch',
-        path: 'ready-To-Watch'
-    },
-    {
-        display: 'Watching',
-        path: '/watching'
-    },
-    {
-        display: 'In Production',
-        path: '/in-Production'
-    },
-    {
-        display: 'Boring',
-        path: '/boring'
-    },
-    {
-        display: 'Cliffhanger',
-        path: '/cliffhanger'
-    },
-    {
-        display: 'Plot Yet Not Finished',
-        path: '/plot-Yet-Not-Finished'
-    },
-    {
-        display: 'Completed',
-        path: '/completed'
-    },
-];
-
 const Header = () => {
 
     const { pathname } = useLocation();
@@ -81,19 +50,6 @@ const Header = () => {
                     <Link to="/">tMovies</Link>
                 </div>
 
-                {/* Top Center */}
-                <ul className="header__nav">
-                    {
-                        statusNav.map((e, i) => (
-                            <li key={i} className={`${i === active ? 'active' : ''}`}>
-                                <Link to={e.path}>
-                                    {e.display}
-                                </Link>
-                            </li>
-                        ))
-                    }
-                </ul>
-        
                 <ul className="header__nav">
                     {
                         headerNav.map((e, i) => (

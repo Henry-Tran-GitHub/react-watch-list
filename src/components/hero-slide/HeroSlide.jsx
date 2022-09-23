@@ -9,6 +9,7 @@ import Modal, { ModalContent } from '../modal/Modal';
 import tmdbApi, { category, movieType } from '../../api/tmdbApi';
 import watchlistApi from "../../api/watchlistApi";
 import { apiConfig } from '../../api/apiConfig';
+import { get_tmdb_data_from_list } from "../../api/util";
 
 import './hero-slide.scss';
 import { useHistory } from 'react-router';
@@ -24,18 +25,11 @@ const HeroSlide = () => {
             const params = { page: 1 }
             try {
                 const response = await watchlistApi.getWatchingList();
-                var otherResp = [];
-
-                response.forEach(async element => {
-                    const tmp = await tmdbApi.getTvListByID(element.tmdbApiFK, { params });
-                    otherResp.push(tmp);
-                });
-                /* console.log(response[0]) */
-                setMovieItems(otherResp);
+                const list = await get_tmdb_data_from_list(tmdbApi, response, params);
+                setMovieItems(list);
             } catch {
                 console.log('error');
             }
-            console.log(movieItems)
         }
         getMovies();
     }, []);

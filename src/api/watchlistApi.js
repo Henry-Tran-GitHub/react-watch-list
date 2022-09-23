@@ -22,6 +22,11 @@ const watchlistApi = {
         const url = 'anime?status=WATCHING';
         return axios_WatchList_API_Client.get(url, params);
     },
+
+    getReadyToWatchList: (type, params) => {
+        const url = 'anime?status=READY_TO_WATCH';
+        return axios_WatchList_API_Client.get(url, params);
+    },
    /*  getTvList: (type, params) => {
         const url = 'tv/' + tvType[type];
         return axiosClient.get(url, params);
