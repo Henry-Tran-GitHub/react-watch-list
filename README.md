@@ -2,6 +2,9 @@
 
     Responsive React Movies App With API
 
+# If fail to start in package.json
+"react-scripts --openssl-legacy-provider start"
+
 # Video tutorial
 
     https://youtu.be/ntYXj9W1Ez8
